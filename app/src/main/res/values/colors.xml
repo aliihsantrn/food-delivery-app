@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--colors-->
+    <color name="anaRenk">#F86903</color>
+    <color name="anaRekKoyu">#AC3B0F</color>
+    <color name="yaziRenk1">#FF000000</color>
+    <color name="yaziRenk2">#9E9E9E</color>
 </resources>
