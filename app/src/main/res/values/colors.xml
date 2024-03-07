@@ -7,5 +7,6 @@
     <color name="anaRenk">#F86903</color>
     <color name="anaRekKoyu">#AC3B0F</color>
     <color name="yaziRenk1">#FF000000</color>
-    <color name="yaziRenk2">#9E9E9E</color>
+    <color name="yaziRenk2">#757575</color>
+    <color name="yaziRenk3">#9e9e9e</color>
 </resources>
