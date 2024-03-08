@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/BottomSheetDialogTheme"
+    android:background="@drawable/bottom_sheet_design"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    tools:context=".ui.fragment.FoodDetailsFragment">
+
+    <ImageView
+        android:id="@+id/foodDetailImage"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/white"
+        android:contentDescription="food image"
+        android:scaleType="centerInside"
+        android:src="@drawable/baklava"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baklava">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/foodCounttxt"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="1dp"
+        android:text="5"
+        android:textAlignment="center"
+        android:textColor="@color/yaziRenk1"
+        android:textSize="32sp"
+        android:fontFamily="@font/kanit_bold"
+        app:layout_constraintBottom_toBottomOf="@+id/addFab"
+        app:layout_constraintEnd_toStartOf="@+id/addFab"
+        app:layout_constraintStart_toEndOf="@+id/removeFab"
+        app:layout_constraintTop_toTopOf="@+id/addFab" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/removeFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="reduce the number of food"
+        android:src="@drawable/remove_icon"
+        app:backgroundTint="@color/anaRenk"
+        app:layout_constraintStart_toStartOf="@+id/foodDetailImage"
+        app:layout_constraintTop_toBottomOf="@+id/foodDetailImage" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="108dp"
+        android:contentDescription="increase the number of food"
+        android:src="@drawable/add_icon"
+        app:backgroundTint="@color/anaRenk"
+        app:layout_constraintEnd_toEndOf="@+id/foodDetailImage"
+        app:layout_constraintTop_toBottomOf="@+id/foodDetailImage" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="2dp"
+        android:layout_height="48dp"
+        android:background="@color/yaziRenk2"
+        app:layout_constraintBottom_toBottomOf="@+id/textView8"
+        app:layout_constraintEnd_toStartOf="@+id/textView8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="2dp"
+        android:layout_height="48dp"
+        android:background="@color/yaziRenk2"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/kanit_medium_main"
+        android:padding="4dp"
+        android:text="25-35 min"
+        android:textColor="@color/yaziRenk2"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/addFab" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/kanit_medium_main"
+        android:padding="4dp"
+        android:text="Pay Online"
+        android:textColor="@color/yaziRenk2"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/addFab" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/kanit_medium_main"
+        android:padding="4dp"
+        android:text="Free Delivery"
+        android:textColor="@color/yaziRenk2"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/removeFab" />
+
+    <TextView
+        android:id="@+id/detailFoodPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:fontFamily="@font/kanit_medium_main"
+        android:gravity="center"
+        android:text="24$"
+        android:textColor="@color/anaRekKoyu"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/addtoCart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/addtoCart" />
+
+    <Button
+        android:id="@+id/addtoCart"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/anaRenk"
+        android:fontFamily="@font/kanit_medium"
+        android:text="Add to Cart"
+        android:textColor="@color/yaziRenk1"
+        android:textSize="16sp"
+        app:icon="@drawable/ic_cart"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

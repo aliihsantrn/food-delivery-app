@@ -1,8 +1,14 @@
 package com.example.foodapp.ui
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.Window
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.example.foodapp.R
 import com.example.foodapp.databinding.ActivityMainBinding
 import com.example.foodapp.ui.fragment.CartFragment
@@ -17,27 +23,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.bottomNavView.setOnItemSelectedListener { item ->
-            when(item.itemId) {
-                R.id.home -> {
-                    loadFragment(HomeFragment())
-                    true
-                }
-                R.id.favorite -> {
-                    loadFragment(FavoriteFragment())
-                    true
-                }
-                R.id.profile -> {
-                    loadFragment(ProfileFragment())
-                    true
-                }
-                R.id.cart -> {
-                    loadFragment(CartFragment())
-                    true
-                }
-                else -> false
-            }
-        }
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+
+        NavigationUI.setupWithNavController(binding.bottomNavView , navHostFragment.navController)
+
+
     }
 
     private  fun loadFragment(fragment: Fragment){

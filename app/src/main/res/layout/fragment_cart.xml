@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cartRcyclerView" />
 
     <TextView
-        android:id="@+id/itemPricetxt"
+        android:id="@+id/detailFoodPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
@@ -91,8 +91,8 @@
         android:textColor="@color/anaRekKoyu"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/itemPricetxt"
-        app:layout_constraintStart_toStartOf="@+id/itemPricetxt"
+        app:layout_constraintEnd_toEndOf="@+id/detailFoodPrice"
+        app:layout_constraintStart_toStartOf="@+id/detailFoodPrice"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <TextView
