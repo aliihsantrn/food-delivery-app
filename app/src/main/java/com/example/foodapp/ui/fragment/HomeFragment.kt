@@ -10,8 +10,9 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.foodapp.R
 import com.example.foodapp.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding : FragmentHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {

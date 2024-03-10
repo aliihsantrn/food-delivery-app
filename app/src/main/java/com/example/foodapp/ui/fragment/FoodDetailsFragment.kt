@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import com.example.foodapp.R
 import com.example.foodapp.databinding.FragmentFoodDetailsBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class FoodDetailsFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentFoodDetailsBinding
 

@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.foodapp.R
 import com.example.foodapp.databinding.FragmentCartBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.coroutines.coroutineContext
 
-
+@AndroidEntryPoint
 class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
     override fun onCreate(savedInstanceState: Bundle?) {

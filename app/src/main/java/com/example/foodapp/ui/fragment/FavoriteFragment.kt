@@ -9,7 +9,9 @@ import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import com.example.foodapp.R
 import com.example.foodapp.databinding.FragmentFavoriteBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FavoriteFragment : Fragment() {
     private lateinit var binding: FragmentFavoriteBinding
     override fun onCreate(savedInstanceState: Bundle?) {

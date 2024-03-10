@@ -15,7 +15,9 @@ import com.example.foodapp.ui.fragment.CartFragment
 import com.example.foodapp.ui.fragment.FavoriteFragment
 import com.example.foodapp.ui.fragment.HomeFragment
 import com.example.foodapp.ui.fragment.ProfileFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
