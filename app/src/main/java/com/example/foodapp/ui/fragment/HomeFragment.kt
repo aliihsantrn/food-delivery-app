@@ -6,15 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.foodapp.R
 import com.example.foodapp.databinding.FragmentHomeBinding
+import com.example.foodapp.ui.adapter.FoodsAdapter
+import com.example.foodapp.ui.viewModel.HomeFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding : FragmentHomeBinding
+    val viewModel : HomeFragmentViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -25,13 +30,15 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentHomeBinding.inflate(inflater , container , false)
+        binding = DataBindingUtil.inflate(inflater , R.layout.fragment_home , container , false)
+
+        viewModel.foodList.observe(viewLifecycleOwner) {
+            val foodsAdapter = FoodsAdapter(requireContext() ,it)
+            binding.foodsAdapter = foodsAdapter
+        }
+
 
         appBarNavigation()
-
-        binding.gelsin.setOnClickListener {
-            showDialog(it , R.id.action_homeFragment_to_foodDetailsFragment)
-        }
 
         return binding.root
     }
@@ -50,9 +57,5 @@ class HomeFragment : Fragment() {
                 else -> false
             }
         }
-    }
-
-    private fun showDialog(it : View , id : Int) {
-        Navigation.findNavController(it).navigate(id)
     }
 }
