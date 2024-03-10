@@ -10,17 +10,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarHome"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/anaRenk"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
+            android:backgroundTint="@color/anaRenk"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:title="AnaSayfa" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                app:menu="@menu/bottom_nav_bar"
+                app:navigationIcon="@drawable/menu_icon_24dp"
+                app:title="Home Page"
+                app:titleTextAppearance="@font/kanit_medium"
+                app:titleTextColor="@color/yaziRenk1" />
+
+        </com.google.android.material.appbar.AppBarLayout>
 
         <SearchView
             android:id="@+id/searchView"
@@ -33,9 +43,10 @@
             android:background="@color/white"
             android:elevation="2dp"
             android:queryHint="Ara"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarHome" />
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
         <Button
 
@@ -49,10 +60,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchView"/>
+            app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

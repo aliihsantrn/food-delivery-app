@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.CartFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/cartToolbar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/anaRenk"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
+        android:backgroundTint="@color/anaRenk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/pageTittletxt"
-            android:layout_width="wrap_content"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/cartTopAppBar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/kanit_bold"
-            android:text="My Cart"
-            android:textColor="@color/yaziRenk1"
-            android:textSize="22dp"
-            tools:layout_editor_absoluteX="165dp"
-            tools:layout_editor_absoluteY="15dp" />
+            android:minHeight="?attr/actionBarSize"
+            app:navigationIcon="@drawable/back_icon_24dp"
+            app:titleTextAppearance="@font/kanit_bold"
+            app:titleTextColor="@color/yaziRenk1"
+            app:title="My Cart" />
 
-    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartRcyclerView"
@@ -37,7 +34,7 @@
         android:layout_height="425dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cartToolbar">
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
     </androidx.recyclerview.widget.RecyclerView>
 
