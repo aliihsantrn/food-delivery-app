@@ -8,17 +8,31 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
+import com.example.foodapp.data.entity.CartFood
 import com.example.foodapp.data.entity.Foods
+import com.example.foodapp.data.repo.FoodsRepository
 import com.example.foodapp.databinding.CardDesignBinding
+import com.example.foodapp.ui.viewModel.HomeFragmentViewModel
+import com.example.foodapp.util.AppConstants
 import com.example.foodapp.util.sendToPage
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class FoodsAdapter(var context: Context , var foodList: List<Foods>) : RecyclerView.Adapter<FoodsAdapter.FoodsHolder>() {
-    inner class FoodsHolder(var binding: CardDesignBinding) : RecyclerView.ViewHolder(binding.root)
+class FoodsAdapter(
+    var context: Context,
+    var foodList: List<Foods>,
+    var viewModel: HomeFragmentViewModel
+) : RecyclerView.Adapter<FoodsAdapter.FoodsHolder>() {
+    inner class FoodsHolder(
+        var binding: CardDesignBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodsHolder {
         val binding : CardDesignBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context) ,
             R.layout.card_design , parent ,false)
+
+        binding.adapterObject = this
 
         return FoodsHolder(binding)
     }
@@ -34,11 +48,19 @@ class FoodsAdapter(var context: Context , var foodList: List<Foods>) : RecyclerV
         design.foodObject = food
 
         val url = "http://kasimadalan.pe.hu/yemekler/resimler/${food.yemek_resim_adi}"
-        Glide.with(context).load(url).override(200 , 150).into(design.imageView)
+        Glide.with(context).load(url).override(200 , 150).into(design.foodImageView)
 
         design.foodCardView.setOnClickListener {
             Navigation.sendToPage(it ,R.id.action_homeFragment_to_foodDetailsFragment)
         }
 
+        design.button.setOnClickListener {
+            CoroutineScope(Dispatchers.Main).launch {
+                viewModel.addToCart(food.yemek_adi ,food.yemek_resim_adi , food.yemek_fiyat.toInt() , 1)
+            }
+        }
     }
+
+
+
 }

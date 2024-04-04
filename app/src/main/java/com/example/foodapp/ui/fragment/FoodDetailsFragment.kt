@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.example.foodapp.R
+import com.example.foodapp.data.entity.Foods
 import com.example.foodapp.databinding.FragmentFoodDetailsBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +27,9 @@ class FoodDetailsFragment : BottomSheetDialogFragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        binding = FragmentFoodDetailsBinding.inflate(inflater , container , false)
+        binding = DataBindingUtil.inflate(inflater , R.layout.fragment_food_details , container , false)
+
+        //veri gonder adapterdan
 
         return binding.root
     }

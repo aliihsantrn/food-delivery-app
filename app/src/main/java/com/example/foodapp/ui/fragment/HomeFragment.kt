@@ -15,6 +15,9 @@ import com.example.foodapp.databinding.FragmentHomeBinding
 import com.example.foodapp.ui.adapter.FoodsAdapter
 import com.example.foodapp.ui.viewModel.HomeFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -33,7 +36,7 @@ class HomeFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater , R.layout.fragment_home , container , false)
 
         viewModel.foodList.observe(viewLifecycleOwner) {
-            val foodsAdapter = FoodsAdapter(requireContext() ,it)
+            val foodsAdapter = FoodsAdapter(requireContext() ,it , viewModel)
             binding.foodsAdapter = foodsAdapter
         }
 
@@ -58,4 +61,6 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
+
 }

@@ -6,4 +6,14 @@ import com.example.foodapp.data.entity.Foods
 class FoodsRepository(var dataSource: FoodsDataSource) {
 
     suspend fun loadFoods() : List<Foods> = dataSource.loadFoods()
+
+    suspend fun addtoBasket(
+        foodName : String,
+        foodImage : String,
+        foodPrice : Int,
+        foodPiece : Int,
+        userName : String
+    ) = dataSource.AddtoBasket(foodName, foodImage, foodPrice, foodPiece, userName)
+
+    suspend fun getBasket() = dataSource.getBasket()
 }
