@@ -33,11 +33,18 @@ class CartFragment : Fragment() {
         viewModel.cartlist.observe(viewLifecycleOwner) {
             val cartAdapter = CartAdapter(requireContext() , it , viewModel)
             binding.cartAdapter = cartAdapter
+            cartAdapter.notifyDataSetChanged()
         }
 
         binding.cartTopAppBar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
+
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getBasket()
     }
 }

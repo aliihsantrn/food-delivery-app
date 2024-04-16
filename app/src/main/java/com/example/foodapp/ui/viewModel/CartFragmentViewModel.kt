@@ -20,9 +20,16 @@ class CartFragmentViewModel
     init {
         getBasket()
     }
+
     fun getBasket() {
         CoroutineScope(Dispatchers.Main).launch {
             cartlist.value = repo.getBasket()
+        }
+    }
+
+    fun deleteFood(foodId : Int) {
+        CoroutineScope(Dispatchers.Main).launch {
+            repo.deleteFood(foodId)
         }
     }
 }

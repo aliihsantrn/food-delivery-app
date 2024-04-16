@@ -1,6 +1,7 @@
 package com.example.foodapp.data.dataSource
 
 import com.example.foodapp.data.entity.CRUDResponse
+import com.example.foodapp.data.entity.CartFood
 import com.example.foodapp.data.entity.Foods
 import com.example.foodapp.retrofit.FoodsDao
 import com.example.foodapp.util.AppConstants
@@ -26,13 +27,13 @@ class FoodsDataSource(var foodsDao: FoodsDao) {
                 foodPrice,
                 foodPiece,
                 userName
-            )
+            ).success
         }
 
-    suspend fun getBasket() =
+    suspend fun getBasket() : List<CartFood> =
         withContext(Dispatchers.IO) {
             try {
-                if (foodsDao.getBasket(AppConstants.USERNAME).cart == null) {
+                if (foodsDao.getBasket(AppConstants.USERNAME).cart.isEmpty()) {
                     return@withContext emptyList()
                 }
 
@@ -43,4 +44,13 @@ class FoodsDataSource(var foodsDao: FoodsDao) {
             }
 
         }
+
+    suspend fun deleteFood(foodId : Int) {
+        withContext(Dispatchers.IO){
+            return@withContext foodsDao.deleteFoodFromCart(
+                foodId,
+                AppConstants.USERNAME
+            )
+        }
+    }
 }

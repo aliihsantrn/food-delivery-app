@@ -1,6 +1,7 @@
 package com.example.foodapp.data.repo
 
 import com.example.foodapp.data.dataSource.FoodsDataSource
+import com.example.foodapp.data.entity.CartFood
 import com.example.foodapp.data.entity.Foods
 
 class FoodsRepository(var dataSource: FoodsDataSource) {
@@ -15,5 +16,7 @@ class FoodsRepository(var dataSource: FoodsDataSource) {
         userName : String
     ) = dataSource.AddtoBasket(foodName, foodImage, foodPrice, foodPiece, userName)
 
-    suspend fun getBasket() = dataSource.getBasket()
+    suspend fun getBasket() : List<CartFood> = dataSource.getBasket()
+
+    suspend fun deleteFood(foodId : Int) = dataSource.deleteFood(foodId)
 }

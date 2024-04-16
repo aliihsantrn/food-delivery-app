@@ -20,9 +20,12 @@ class CartAdapter(
     var context: Context,
     var cartList: List<CartFood>,
     var viewModel: CartFragmentViewModel) : RecyclerView.Adapter<CartAdapter.CartsHolder>() {
-    inner class CartsHolder(var binding: CartCardDesignBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class CartsHolder(
+        var binding: CartCardDesignBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartAdapter.CartsHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup, viewType: Int): CartAdapter.CartsHolder {
+
         val binding : CartCardDesignBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             R.layout.cart_card_design,
@@ -45,10 +48,18 @@ class CartAdapter(
         design.cartFoodObject = cartFood
 
         val url = "http://kasimadalan.pe.hu/yemekler/resimler/${cartFood.yemek_resim_adi}"
-        Glide.with(context).load(url).override(200 , 150).into(design.foodImageView)
+
+        Glide.with(context)
+            .load(url)
+            .override(200 , 150)
+            .into(design.foodImageView)
+
+        design.DeleteBtn.setOnClickListener {
+            viewModel.deleteFood(cartFood.sepet_yemek_id.toInt())
+        }
 
     }
 
-    
+
 
 }

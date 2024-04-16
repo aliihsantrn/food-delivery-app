@@ -2,4 +2,6 @@
     <string name="app_name">FoodApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reduce_the_number_of_food">reduce the number of food</string>
+    <string name="increase_the_number_of_food">increase the number of food</string>
 </resources>

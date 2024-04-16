@@ -8,12 +8,16 @@
             name="foodObject"
             type="com.example.foodapp.data.entity.Foods" />
 
+        <variable
+            name="nesne"
+            type="com.example.foodapp.ui.fragment.FoodDetailsFragment" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/BottomSheetDialogTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/BottomSheetDialogTheme"
         android:background="@drawable/bottom_sheet_design"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         tools:context=".ui.fragment.FoodDetailsFragment">
@@ -27,10 +31,10 @@
             android:layout_marginEnd="16dp"
             android:background="@color/white"
             android:contentDescription="food image"
-            android:scaleType="centerInside"
+            android:scaleType="fitCenter"
             android:src="@drawable/baklava"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baklava">
@@ -41,39 +45,41 @@
             android:id="@+id/foodCounttxt"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:fontFamily="@font/kanit_bold"
             android:padding="1dp"
-            android:text="5"
+            android:text="1"
             android:textAlignment="center"
             android:textColor="@color/yaziRenk1"
             android:textSize="32sp"
-            android:fontFamily="@font/kanit_bold"
             app:layout_constraintBottom_toBottomOf="@+id/addFab"
-            app:layout_constraintEnd_toStartOf="@+id/addFab"
-            app:layout_constraintStart_toEndOf="@+id/removeFab"
+            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="@+id/addFab" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/removeFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="106dp"
             android:layout_marginTop="24dp"
-            android:contentDescription="reduce the number of food"
+            android:layout_marginEnd="8dp"
+            android:onClick="@{() ->nesne.decrement()}"
+            android:contentDescription="@string/reduce_the_number_of_food"
             android:src="@drawable/remove_icon"
             app:backgroundTint="@color/anaRenk"
-            app:layout_constraintStart_toStartOf="@+id/foodDetailImage"
+            app:layout_constraintEnd_toStartOf="@+id/foodCounttxt"
             app:layout_constraintTop_toBottomOf="@+id/foodDetailImage" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="108dp"
-            android:contentDescription="increase the number of food"
+            android:onClick="@{() ->nesne.increment()}"
+            android:contentDescription="@string/increase_the_number_of_food"
             android:src="@drawable/add_icon"
             app:backgroundTint="@color/anaRenk"
-            app:layout_constraintEnd_toEndOf="@+id/foodDetailImage"
+            app:layout_constraintStart_toEndOf="@+id/foodCounttxt"
             app:layout_constraintTop_toBottomOf="@+id/foodDetailImage" />
 
         <TextView

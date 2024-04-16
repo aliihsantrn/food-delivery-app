@@ -11,7 +11,7 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_foodDetailsFragment"
+            android:id="@+id/action_homeFragment_to_foodDetailFragment"
             app:destination="@id/foodDetailsFragment" />
         <action
             android:id="@+id/action_homeFragment_to_cartFragment"
@@ -39,5 +39,9 @@
         android:id="@+id/foodDetailsFragment"
         android:name="com.example.foodapp.ui.fragment.FoodDetailsFragment"
         android:label="fragment_food_details"
-        tools:layout="@layout/fragment_food_details" />
+        tools:layout="@layout/fragment_food_details" >
+        <argument
+            android:name="food"
+            app:argType="com.example.foodapp.data.entity.Foods" />
+    </dialog>
 </navigation>

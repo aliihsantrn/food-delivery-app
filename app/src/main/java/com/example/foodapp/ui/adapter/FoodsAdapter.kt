@@ -12,6 +12,7 @@ import com.example.foodapp.data.entity.CartFood
 import com.example.foodapp.data.entity.Foods
 import com.example.foodapp.data.repo.FoodsRepository
 import com.example.foodapp.databinding.CardDesignBinding
+import com.example.foodapp.ui.fragment.HomeFragmentDirections
 import com.example.foodapp.ui.viewModel.HomeFragmentViewModel
 import com.example.foodapp.util.AppConstants
 import com.example.foodapp.util.sendToPage
@@ -48,15 +49,26 @@ class FoodsAdapter(
         design.foodObject = food
 
         val url = "http://kasimadalan.pe.hu/yemekler/resimler/${food.yemek_resim_adi}"
-        Glide.with(context).load(url).override(200 , 150).into(design.foodImageView)
+
+        Glide.with(context)
+            .load(url)
+            .override(200 , 150)
+            .into(design.foodImageView)
 
         design.foodCardView.setOnClickListener {
-            Navigation.sendToPage(it ,R.id.action_homeFragment_to_foodDetailsFragment)
+            //detay sayfasına veri gönder
+            val gecis = HomeFragmentDirections.actionHomeFragmentToFoodDetailFragment(food)
+            Navigation.findNavController(it).navigate(gecis)
         }
 
         design.button.setOnClickListener {
             CoroutineScope(Dispatchers.Main).launch {
-                viewModel.addToCart(food.yemek_adi ,food.yemek_resim_adi , food.yemek_fiyat.toInt() , 1)
+                viewModel.addToCart(
+                    food.yemek_adi,
+                    food.yemek_resim_adi,
+                    food.yemek_fiyat.toInt(),
+                    1
+                )
             }
         }
     }
