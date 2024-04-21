@@ -32,4 +32,8 @@ class CartFragmentViewModel
             repo.deleteFood(foodId)
         }
     }
+
+    fun updateData(newData: List<CartFood>) {
+        cartlist.value = newData
+    }
 }

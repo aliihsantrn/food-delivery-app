@@ -36,7 +36,7 @@ class HomeFragmentViewModel @Inject constructor(var repo : FoodsRepository) : Vi
         foodPiece : Int
     ) {
         CoroutineScope(Dispatchers.Main).launch {
-            repo.addtoBasket(foodName , foodImage , foodPrice , foodPiece , AppConstants.USERNAME)
+            repo.addtoBasket(foodName , foodImage , foodPrice , foodPiece)
         }
     }
 }

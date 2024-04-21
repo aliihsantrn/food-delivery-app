@@ -12,6 +12,10 @@
             name="nesne"
             type="com.example.foodapp.ui.fragment.FoodDetailsFragment" />
 
+        <variable
+            name="sonuc"
+            type="String" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,7 +51,7 @@
             android:layout_height="48dp"
             android:fontFamily="@font/kanit_bold"
             android:padding="1dp"
-            android:text="1"
+            android:text="@{sonuc}"
             android:textAlignment="center"
             android:textColor="@color/yaziRenk1"
             android:textSize="32sp"
@@ -62,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            android:onClick="@{() ->nesne.decrement()}"
+            android:onClick="@{() ->nesne.cıkar(sonuc)}"
             android:contentDescription="@string/reduce_the_number_of_food"
             android:src="@drawable/remove_icon"
             app:backgroundTint="@color/anaRenk"
@@ -75,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:onClick="@{() ->nesne.increment()}"
+            android:onClick="@{() ->nesne.topla(sonuc)}"
             android:contentDescription="@string/increase_the_number_of_food"
             android:src="@drawable/add_icon"
             app:backgroundTint="@color/anaRenk"

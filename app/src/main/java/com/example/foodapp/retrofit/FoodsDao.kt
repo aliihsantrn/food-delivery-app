@@ -4,6 +4,7 @@ import com.example.foodapp.data.entity.CRUDResponse
 import com.example.foodapp.data.entity.CartResponse
 import com.example.foodapp.data.entity.Foods
 import com.example.foodapp.data.entity.FoodsResponse
+import com.example.foodapp.util.AppConstants
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -37,7 +38,7 @@ interface FoodsDao {
     @FormUrlEncoded
     suspend fun deleteFoodFromCart(
         @Field("sepet_yemek_id") cartFoodId: Int,
-        @Field("kullanici_adi") username: String
+        @Field("kullanici_adi") username: String = AppConstants.USERNAME
     ): CRUDResponse
 
 

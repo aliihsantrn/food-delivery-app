@@ -55,11 +55,11 @@ class CartAdapter(
             .into(design.foodImageView)
 
         design.DeleteBtn.setOnClickListener {
-            viewModel.deleteFood(cartFood.sepet_yemek_id.toInt())
+            viewModel.deleteFood(cartFood.sepet_yemek_id)
+            viewModel.getBasket()
         }
 
     }
-
 
 
 }

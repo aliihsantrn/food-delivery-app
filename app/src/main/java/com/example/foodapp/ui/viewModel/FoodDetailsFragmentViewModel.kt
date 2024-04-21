@@ -1,6 +1,7 @@
 package com.example.foodapp.ui.viewModel
 
 import androidx.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.foodapp.data.repo.FoodsRepository
 import com.example.foodapp.util.AppConstants
@@ -21,7 +22,9 @@ class FoodDetailsFragmentViewModel
         foodPiece : Int
     ) {
         CoroutineScope(Dispatchers.Main).launch {
-            repo.addtoBasket(foodName , foodImage , foodPrice , foodPiece , AppConstants.USERNAME)
+            repo.addtoBasket(foodName , foodImage , foodPrice , foodPiece)
         }
     }
+
+
 }

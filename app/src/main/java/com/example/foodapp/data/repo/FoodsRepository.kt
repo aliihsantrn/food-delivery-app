@@ -12,9 +12,8 @@ class FoodsRepository(var dataSource: FoodsDataSource) {
         foodName : String,
         foodImage : String,
         foodPrice : Int,
-        foodPiece : Int,
-        userName : String
-    ) = dataSource.AddtoBasket(foodName, foodImage, foodPrice, foodPiece, userName)
+        foodPiece : Int
+    ) = dataSource.AddtoBasket(foodName, foodImage, foodPrice, foodPiece)
 
     suspend fun getBasket() : List<CartFood> = dataSource.getBasket()
 

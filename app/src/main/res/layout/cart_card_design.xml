@@ -8,6 +8,8 @@
             name="cartFoodObject"
             type="com.example.foodapp.data.entity.CartFood" />
 
+
+
     </data>
 
     <LinearLayout
@@ -72,7 +74,7 @@
                         android:layout_width="64dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/kanit_medium"
-                        android:text="@{cartFoodObject.yemek_siparis_adet}" />
+                        android:text="@{Integer.toString(cartFoodObject.yemek_siparis_adet)}" />
 
                     <Button
                         android:id="@+id/addFoodBtn"
@@ -90,7 +92,7 @@
                     android:layout_marginStart="8dp"
                     android:fontFamily="@font/kanit"
                     android:gravity="center"
-                    android:text="@{cartFoodObject.yemek_fiyat + '₺'}"
+                    android:text="@{Integer.toString(cartFoodObject.yemek_fiyat*cartFoodObject.yemek_siparis_adet)+ '₺'}"
                     android:textColor="@color/anaRekKoyu"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@+id/toggleButton"

@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.foodapp.R
+import com.example.foodapp.data.entity.CartFood
 import com.example.foodapp.databinding.FragmentCartBinding
 import com.example.foodapp.ui.adapter.CartAdapter
 import com.example.foodapp.ui.viewModel.CartFragmentViewModel
@@ -30,10 +32,16 @@ class CartFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater , R.layout.fragment_cart , container , false)
 
+        binding.totalCount = "0"
+
         viewModel.cartlist.observe(viewLifecycleOwner) {
             val cartAdapter = CartAdapter(requireContext() , it , viewModel)
             binding.cartAdapter = cartAdapter
-            cartAdapter.notifyDataSetChanged()
+
+            var count = it.sumOf { it.yemek_fiyat * it.yemek_siparis_adet }
+            binding.totalCount = count.toString()
+            binding.subtotal = (count + 10).toString()
+            println(it)
         }
 
         binding.cartTopAppBar.setNavigationOnClickListener {
@@ -42,6 +50,7 @@ class CartFragment : Fragment() {
 
         return binding.root
     }
+
 
     override fun onResume() {
         super.onResume()

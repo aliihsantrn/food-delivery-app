@@ -18,15 +18,14 @@ class FoodsDataSource(var foodsDao: FoodsDao) {
         foodName : String,
         foodImage : String,
         foodPrice : Int,
-        foodPiece : Int,
-        userName : String) =
+        foodPiece : Int) =
         withContext(Dispatchers.IO) {
             return@withContext foodsDao.addtoBasket(
                 foodName,
                 foodImage,
                 foodPrice,
                 foodPiece,
-                userName
+                AppConstants.USERNAME
             ).success
         }
 
@@ -47,10 +46,7 @@ class FoodsDataSource(var foodsDao: FoodsDao) {
 
     suspend fun deleteFood(foodId : Int) {
         withContext(Dispatchers.IO){
-            return@withContext foodsDao.deleteFoodFromCart(
-                foodId,
-                AppConstants.USERNAME
-            )
+            return@withContext foodsDao.deleteFoodFromCart(foodId)
         }
     }
 }
