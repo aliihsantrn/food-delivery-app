@@ -1,8 +1,12 @@
 package com.example.foodapp.ui.adapter
 
 import android.content.Context
+import android.content.res.Resources.Theme
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
@@ -12,10 +16,12 @@ import com.example.foodapp.data.entity.CartFood
 import com.example.foodapp.data.entity.Foods
 import com.example.foodapp.data.repo.FoodsRepository
 import com.example.foodapp.databinding.CardDesignBinding
+import com.example.foodapp.databinding.CustomToastMsgBinding
 import com.example.foodapp.ui.fragment.HomeFragmentDirections
 import com.example.foodapp.ui.viewModel.HomeFragmentViewModel
 import com.example.foodapp.util.AppConstants
 import com.example.foodapp.util.sendToPage
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -70,6 +76,17 @@ class FoodsAdapter(
                     1
                 )
             }
+
+            val inflater: LayoutInflater = LayoutInflater.from(context)
+            val toastMsgBinding : CustomToastMsgBinding = CustomToastMsgBinding.inflate(inflater)
+            val rootView = toastMsgBinding.root
+
+            toastMsgBinding.toastMsgText.text = "Added to Cart"
+
+            val toast = Toast(it.context)
+            toast.duration = Toast.LENGTH_SHORT
+            toast.view = rootView
+            toast.show()
         }
     }
 

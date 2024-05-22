@@ -20,6 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class CartFragment : Fragment() {
     private lateinit var binding : FragmentCartBinding
     val viewModel : CartFragmentViewModel by viewModels()
+    private lateinit var adapter: CartAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,14 +35,18 @@ class CartFragment : Fragment() {
 
         binding.totalCount = "0"
 
+
         viewModel.cartlist.observe(viewLifecycleOwner) {
-            val cartAdapter = CartAdapter(requireContext() , it , viewModel)
-            binding.cartAdapter = cartAdapter
+            adapter = CartAdapter(
+                requireContext(),
+                it,
+                viewModel)
+
+            binding.cartAdapter = adapter
 
             var count = it.sumOf { it.yemek_fiyat * it.yemek_siparis_adet }
             binding.totalCount = count.toString()
             binding.subtotal = (count + 10).toString()
-            println(it)
         }
 
         binding.cartTopAppBar.setNavigationOnClickListener {

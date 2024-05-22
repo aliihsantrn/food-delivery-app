@@ -22,7 +22,7 @@
                 android:id="@+id/appBarLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/anaRenk"
+                android:backgroundTint="@color/mainColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -33,10 +33,16 @@
                     android:layout_height="wrap_content"
                     android:minHeight="?attr/actionBarSize"
                     app:menu="@menu/bottom_nav_bar"
-                    app:navigationIcon="@drawable/menu_icon_24dp"
-                    app:title="Home Page"
-                    app:titleTextAppearance="@font/kanit_medium"
-                    app:titleTextColor="@color/yaziRenk1" />
+                    app:titleTextColor="@color/textColor1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OrderEase"
+                        android:textColor="@color/textColor1"
+                        android:fontFamily="@font/pacifico"
+                        android:textSize="24dp"/>
+                </com.google.android.material.appbar.MaterialToolbar>
 
             </com.google.android.material.appbar.AppBarLayout>
 

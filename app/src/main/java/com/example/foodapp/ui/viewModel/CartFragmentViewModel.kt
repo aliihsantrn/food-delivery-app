@@ -33,7 +33,4 @@ class CartFragmentViewModel
         }
     }
 
-    fun updateData(newData: List<CartFood>) {
-        cartlist.value = newData
-    }
 }

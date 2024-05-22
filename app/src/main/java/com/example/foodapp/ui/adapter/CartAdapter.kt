@@ -1,6 +1,7 @@
 package com.example.foodapp.ui.adapter
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -8,13 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
 import com.example.foodapp.data.entity.CartFood
-import com.example.foodapp.databinding.CardDesignBinding
 import com.example.foodapp.databinding.CartCardDesignBinding
 import com.example.foodapp.ui.viewModel.CartFragmentViewModel
-import com.example.foodapp.util.AppConstants
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.google.android.material.color.MaterialColors
+import com.google.android.material.snackbar.Snackbar
 
 class CartAdapter(
     var context: Context,
@@ -55,11 +53,18 @@ class CartAdapter(
             .into(design.foodImageView)
 
         design.DeleteBtn.setOnClickListener {
-            viewModel.deleteFood(cartFood.sepet_yemek_id)
-            viewModel.getBasket()
+            val message = "${cartFood.yemek_adi} sepetten çıkarılsın mı?"
+            Snackbar.make(it, message, Snackbar.LENGTH_LONG)
+                .setBackgroundTint(Color.WHITE)
+                .setActionTextColor(Color.RED)
+                .setTextColor(Color.RED)
+                .setAction("EVET") {
+
+                    viewModel.deleteFood(cartFood.sepet_yemek_id)
+                    viewModel.getBasket()
+                }.show()
         }
 
     }
-
 
 }

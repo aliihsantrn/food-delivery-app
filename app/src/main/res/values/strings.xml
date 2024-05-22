@@ -4,4 +4,17 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="reduce_the_number_of_food">reduce the number of food</string>
     <string name="increase_the_number_of_food">increase the number of food</string>
+    <string name="my_favorite">My Favorite</string>
+    <string name="food_image">food image</string>
+    <string name="free_delivery">Free Delivery</string>
+    <string name="pay_online">Pay Online</string>
+    <string name="_25_35_min">25-35 min</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="no" />
+    <string name="yes" />
+    <string name="selected_item">Selected Item</string>
+    <string name="delivery_amp_handling"><![CDATA[Delivery & Handling]]></string>
+    <string name="_10">10$</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="check_out">Check Out</string>
 </resources>

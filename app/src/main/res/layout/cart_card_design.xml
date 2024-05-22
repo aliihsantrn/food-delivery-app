@@ -46,7 +46,7 @@
                     android:fontFamily="@font/kanit_medium"
                     android:gravity="center"
                     android:text="@{cartFoodObject.yemek_adi}"
-                    android:textColor="@color/yaziRenk1"
+                    android:textColor="@color/textColor1"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/toggleButton"
                     app:layout_constraintStart_toEndOf="@+id/foodImageView" />
@@ -93,7 +93,7 @@
                     android:fontFamily="@font/kanit"
                     android:gravity="center"
                     android:text="@{Integer.toString(cartFoodObject.yemek_fiyat*cartFoodObject.yemek_siparis_adet)+ '₺'}"
-                    android:textColor="@color/anaRekKoyu"
+                    android:textColor="@color/mainColorDark"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@+id/toggleButton"
                     app:layout_constraintStart_toEndOf="@+id/toggleButton"
